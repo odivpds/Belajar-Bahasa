@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forLoop</title>
+</head>
+<body>
+    <script>
+        /*
+        for(init statement; kondisi; post statement){
+            // code block perulangan
+        }
+        //note : arah perulangan akan selalu horizontal, jadi kalau ingin mendapatkan data yang vertikal harus diisi enter atau tag <br>, <p>, <pre> dll
+        
+        a. init statement akan dieksekusi hanya sekali di awal sebelum perulangan
+        b. kondisi akan dilakukan pengechekan dalam setiap perulangan, jika true perulangan akan dilakukan, jika false maka perulangan akan berhenti
+        c. post statement akan dieksekusi setiap kali akhir perulangan
+        d. init statement, kondisi dan post statement tidak wajib diisi, jika kondisi tidak diisi, berati kondisi selalu bernilai true, dan jika kondisi selalu bernilai true maka perulangan infinity atau tidak akan berhenti
+        */
+       
+        // contoh pertama
+        let angka = 1;
+        for ( ;angka <= 10; ){
+            document.writeln(`<pre>perulangan ke ${angka}</pre>`)
+            angka++
+         }
+         document.writeln("<br>")
+
+        // contoh yang lebih efisien dan efektif
+        for(let angka = 1; angka <= 10;angka++){
+            document.writeln(`<pre>perulangan ke ${angka}</pre>`)
+         }
+         document.writeln("<br>")
+         document.writeln("<br>")
+         
+         
+        // sharp triangel 
+        // Ini adalah loop utama untuk mengatur jumlah baris dalam pola
+        for(let angka = 1; angka <= 10; angka++){
+            // Ini adalah loop nested untuk mengatur jumlah "#" dalam satu baris
+            for(let data = 1 ; data <= angka; data++){
+                document.writeln("#");
+            }
+            document.writeln("<br>"); // Mencetak baris baru setelah satu baris "#" selesai
+        }
+
+
+
+        // 2. For in Loop
+        /*
+        for in loop adalah sebuah pernyataan dalam bahasa pemrograman JavaScript yang digunakan untuk mengulang melalui properti enumerable dari sebuah objek. Pernyataan ini akan mengulang melalui semua properti enumerable dari objek itu sendiri dan turunan dari rantai prototipe objek itu. Dalam setiap iterasi, pernyataan for in akan menetapkan nama properti ke variabel yang diberikan dan kemudian menjalankan blok kode yang terkait dengan pernyataan itu
+        */
+       // *note : for in lebih disarankan digunakan untuk properties walaupun juga bisa digunakan untuk array, karena untuk array lebih baik menggunakan for of
+
+        // contoh penerapan
+        let dataDiri = {
+            name : "odiv",
+            age : "19 tahun",
+            address : "tampaksiring"
+        };
+
+        for(let properties in dataDiri){
+            console.log(`${properties} : ${dataDiri[properties]}`); // untuk mengakses value properties didalam variable dataDiri
+        }
+
+
+
+        // 3. for Of Loop
+        /*
+        for of Loop adalah sebuah pernyataan dalam bahasa pemrograman JavaScript yang digunakan untuk melakukan pengulangan pada objek yang dapat diulang seperti Array, String, Map, Set, NodeList, dan objek iterable lainnya.
+        */
+        // *note : for of ini digunakan untuk mengakses value, berbeda dengan for in yang lebih digunakan untuk mengakses properties atau index
+        
+        // contoh penerapan untuk array
+        const names = ["Putu", "Agus", "Prana", "Dhiva", "Satvika"];
+        for(const name of names){
+            console.log(`${name}`); // output adalah value dari array names berderet horizontal
+        }
+
+        // string
+        const fullName = "Putu Agus Prana Dhiva Satvika";
+        for(const character of fullName){
+            console.log(`${character}`); // output : menampilkan setiap huruf dari value fullName yang berderet horizontal 
+        }
+
+
+ 
+
+
+    </script>
+</body>
+</html>

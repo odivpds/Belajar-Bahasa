@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* ARROW FUNCTION
+        Limitasi arrow function :
+        - tidak memiliki fitur argument object (argument tidak disarankan untuk digunakan saat ini)
+        - tidak bisa menggunakan function generator
+        - tidak bisa mengakses this
+        - tidak bisa mengakses super (materi didalam oop)
+        */
+
+        // arrow function 
+
+        const sayHello = (name) => {
+            const say = `Hello ${name}`;
+            console.log(say);
+        }
+        sayHello("odiv");
+
+
+
+        // arrow function tanpa block
+
+        const sayHai = (name) => console.log(`hai ${name}`);
+
+        sayHai("andien");
+
+
+        // arrow function return value
+        const times = (first, second) => {
+            return first * second ;
+        }
+
+        console.log(times(10, 10));
+
+        // tanpa block
+
+        const sum = (angka1, angka2) => angka1 + angka2
+        console.log(sum(10,5))
+    </script>
+</body>
+</html>

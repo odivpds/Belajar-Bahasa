@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type data object</title>
+</head>
+<body>
+    <script> 
+        // type-data object serupa dengan array namun indexnya diubah menjadi atribut, maka atribut tersebut bebas dapat diisi apa aja mau itu string atau integer
+        const dataPerson = [];
+        dataPerson["nama lengkap"] = "Putu Agus Prana Dhiva Satvika";
+        dataPerson["alamat"] = "Bali";
+        dataPerson["umur"] = 19;
+
+        console.table(dataPerson); // output : [nama lengkap, alamat, umur]
+
+        // menghapus data-object
+        delete dataPerson["umur"];
+        console.table(dataPerson); // output : [nama lengkap, alamat]
+
+
+        // Membuat object dengan properties
+        // Penulisan type-data object juga dapat dilakukan seperti ini sehingga akan lebih gampang dan efisien
+        // atribut pada data object dapat tuliskan dengan variable biasa atau bisa juga dengan string ;
+        const person = {
+            "Nama lengkap" : "Putu Agus Prana Dhiva Satvika", // nama lengkap merupakan atribut data object
+            Alamat : "Bali",
+            Umur : 19,
+            "Cita-cita" : "pilot"
+
+        };
+        console.table(person); // output : [Nama lengkap, Alamat, Umur, Cita-cita]
+
+
+        // Mengakses properties object
+        console.info(`Fullname : ${person["Nama lengkap"]}`); // jika properties merupakan string yang memiliki spasi
+        console.info(`Address : ${person.Alamat}`); // jika properties merupakan variable biasa atau string tanpa spasi
+        console.info(`Age : ${person.Umur}`);
+        console.info(`Goals : ${person["Cita-cita"]}`);
+
+        /*output :
+        Fullname : Putu Agus Prana Dhiva Satvika
+        Address: Bali
+        Age : 19
+        Goals : pilot
+        */
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

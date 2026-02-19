@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whileLoop</title>
+</head>
+<body>
+    <script>
+        let angka = 1;
+        while(angka <= 10){
+            document.writeln(`<p>${angka}</p>`);
+            angka++
+        }
+
+
+        // star triangle
+        // Inisialisasi variabel i untuk mengatur jumlah baris dalam pola
+        let i = 1;
+        while(i <= 10){
+            // Inisialisasi variabel j untuk mengatur jumlah "*" dalam satu baris
+            let j = 1;
+            while(j <= i){
+                document.writeln("*"); // Mencetak "*" ke dalam dokumen
+                j++; // Menambah nilai j agar loop berakhir saat mencetak jumlah "*" yang sesuai
+            }
+            document.writeln("<br>"); // Mencetak baris baru setelah satu baris "*" selesai
+            i++; // Menambah nilai i untuk beralih ke baris berikutnya
+        }
+
+    </script>
+</body>
+</html>

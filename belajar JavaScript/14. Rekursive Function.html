@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rekursive</title>
+</head>
+<body>
+    <script>
+        /* Rekursive function\
+        - rekursive function adalah kemampuan function memanggil function dirinya sendiri
+        - contoh kasus yang biasanya di selesaikan menggunakan rekursive function adalah factorial
+        */
+
+       // ini adalah contoh factorial menggunakan looping
+       function factorialLoop(value){
+            let result = 1; 
+            for (let i = 1; i <= value; i++){
+                result *= i;
+
+            }
+                return result   
+
+       }
+
+       console.log(factorialLoop(5));
+
+
+
+       // ini adalah contoh factorial menggunakan rekursive function
+       function factorialRekursiv(value){
+        if(value === 1){
+            return 1 ;
+        }else{
+            return value * factorialRekursiv(value-1);
+        }
+       }
+
+       console.log(factorialRekursiv(5));
+
+
+
+       // perulangan mencetak angka 1 sampai 10 menggunakan rekursive function
+       function perulanganRekursive(start,finish){
+        if(start <= finish){
+            console.log(start)
+            perulanganRekursive(start + 1, finish) // untuk menjalankan rekursive function harus ada pemanggilan function di dalam boolean
+        }
+       }
+
+       perulanganRekursive(1,10)
+
+    </script>
+</body>
+</html>

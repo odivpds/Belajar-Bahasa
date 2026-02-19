@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console & String Templatet</title>
+</head>
+<body>
+    <script>
+        /*Jenis-jenis Console*/
+        console.debug("debug");
+        console.info("Menampilkan informasi");
+        console.warn("Menampilkan warning atau peringatan");
+        console.error("Menampilkan erorr atau bahaya");
+        console.table("Menampilkan informasi berupa table");
+
+
+        /*Penggunaan Logika menggunakan string-template*/
+        const name = "Putu Agus Prana Dhiva Satvika";
+        const firstName = "Putu";
+        const middleName = "Agus Prana";
+        const lastName = "Dhiva Satvika";
+
+        const biodata = `Nama : ${firstName} ${middleName} ${lastName}`; /*String-Template*/
+
+        console.info(biodata);
+
+        /*Menampilkan nilai boolean terhadap hasil kelulusan*/
+        const nilaiSiswa = 90
+        const nilaiAbsen = 85
+        const lulus = nilaiSiswa >= 70 && nilaiAbsen >= 80
+        const kelulusanOdip = `Nama : ${firstName} ${middleName} ${lastName}, Kelulusan = ${lulus}`;
+
+        console.info(kelulusanOdip)
+
+
+
+        /*Multiline by string-template
+        berikut adalah contoh multiline*/
+        const Multiline = `Haloo saya Putu Agus Prana Dhiva Satvika,
+        saya berumur 19 tahun, 
+        hobi saya adalah olahraga`
+
+        document.writeln(`<pre>${Multiline}</pre>`);
+        document.writeln(`<br>`)
+        
+        
+        
+        /*Data Konversi string to integer dan sebaliknya*/
+        /*
+        parseInt("string") = mengubah string ke bilangan bulat
+        parseFloat("string") = mengubah string ke bilangan bulat atau desimal
+        Number("string") = mengubah string ke bilangan bulat atau pecahan 'mirip dengan float'
+        Number.toString() = mengubah data Number ke string
+        */
+       //contoh penerapannya
+       const angka1 = 1;
+       const angka2 = parseInt("1");
+       const operasi = angka1 + angka2;
+        document.writeln(`<pre> angka 1 + angka 2 = ${operasi} </pre>`)
+        
+        const value = 3.3;
+        document.writeln(`<p>${parseInt(value)}</p>`); // hasil = 3
+        document.writeln(`<p>${parseFloat(value)}</p>`);// hasil = 3.3
+        document.writeln(`<p>${Number(value)}</p>`);// hasil = 3.3
+        document.writeln(`<p>${value.toString()}</p>`);// hasil = "3.3" (Tapi merupakan type string)
+
+        //NaN(Not a Number)
+        document.writeln(`<p>${parseInt("angka")}</p>`); // output = NaN
+        document.writeln(`<p>${parseInt("20angka")}</p>`); // output = 20 (Karena parseInt dan parseFloat akan mengechek barisan paling depan dulu)
+        document.writeln(`<p>${Number("20angka")}</p>`); //output = Nan (Karena metode Number hanya akan membaca yang benar" angka)
+
+        //untuk mengechek NaN
+        document.writeln(`<p>${isNaN("angka")}</p>`)
+        document.writeln(`<p>${isNaN(20)}</p>`)
+
+        
+    </script>
+</body>
+</html>

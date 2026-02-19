@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undifined</title>
+</head>
+<body>
+<script>
+    let name;
+
+    if(name === undefined){
+        console.log("UNDIFINED");
+    }else{
+        console.log("DEFINED");
+    }
+    // output adalah UNDEFINED karena variabel name tidak berisikan value, jika variable name diisikan value maka output akan DEFINED
+
+
+    // undefined Array
+    const names = ["agus", "budi", "andi"];
+    
+    if(names[3] === undefined){
+        console.log(" ARRAY UNDIFINED");
+    }else{
+        console.log(" ARRAY DEFINED");
+    }
+    // output akan UNDIFINED karena data index yang dipanggil tidak ada di dalam array, jika index yang dipanggil berisikan data maka output DEFINED  
+
+
+    // undifined object property
+    const person= {
+        nama: "odiv"
+    };
+
+    if(person.nama === undefined){
+        console.log(`hello, but sorry idk your name sir`);
+    }else{
+        console.log(`hello Mr. ${person.nama} have a nice day`)
+    }
+    // output akan hello Mr. odiv, karena variable nama terisi dengan value, jika variable nama tidak memiliki value maka akan mencetak sorry
+
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function generator</title>
+</head>
+<body>
+    <script>
+        /* Function generator
+        - function generator adalah function yang digunakan untuk membuat data generator
+        - generator adalah data yang bisa di interasi seperti array
+        - untuk membuat function generator, kita perlu menggunakan tanda * (bintang) setelah kata function
+        - dan untuk mengembalikan data di tiap iterasi, kita bisa gunakan kata kunci "yield" diikuti datanya
+        */
+
+        function* creatName(){
+            yield "Putu";
+            yield "Agus";
+            yield "Prana";
+        }
+        
+        console.log(creatName()); // akan mencetak undefined
+
+        // melakukan iterasi
+        let names = creatName();
+        for( name of names){
+            console.log(name); // akan menampilkan isi dari semua value dari yeild
+        }
+
+
+        // contoh kasus function generator yang lebih kompleks yaitu memunculkan angka ganjil dalam range tertentu
+
+        // lazy
+        function* buatGanjilGenerator(value){
+            for(let i = 1; i <= value; i++){
+                if(i % 2 === 1){
+                    console.log(`yeild ${i}`);
+                    yield i;
+                }
+            }
+        }
+        // jadi function generator ini merupakan lazy
+
+
+        // ini merupakan contoh kasus yang sama seperti diatas tetepi menggunakan array
+        // eager
+        function buatGanjilArray(value){
+            let result = [];
+            for(let i = 1; i <= value; i++){
+                if(i % 2 === 1){
+                    console.log(`yeild ${i}`);
+                    result.push(i);
+                }
+            }
+            return result;
+        }
+
+        // lazy vs eager 
+        /* jadi kalau lazy maka harus dipanggil menggunakan iterasi sedangkan kalau eager tidak, contohnya jika function GanjilArray() dipanggil menggunakan (const number = buatGanjilArray) maka outputnya tidak akan error, sedangkan function GanjilGenerator() akan error atau valuenya tidak mau keluar
+        */
+
+        const number = buatGanjilGenerator(50);
+        // for(angka of number){
+        //     console.log(angka);
+        // }
+
+        // ini untuk mengetes lazy
+        // nah ini adalah pemanggilan untuk function GanjilGenerator
+        console.log(number.next().value);
+        console.log(number.next().value);
+        console.log(number.next().value);
+        /* output : 
+        yeild 1
+        1
+        yeild 2
+        2
+        yeild 3
+        3
+        
+        yang dimana ini menjelaskan bahwa data lazy itu hanya muncul disaat dia dibutuhkan atau dipanggil, jika kita memanggilanya 3 kali maka datanya hanya muncul 3 kali, berbeda dengan eager yang dipanggil sekali akan memunculkan semua data
+        
+        */
+
+
+
+
+
+
+    </script>
+</body>
+</html>

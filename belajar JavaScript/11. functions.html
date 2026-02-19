@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        /* 1. FUNCTION
+        - Function adalah blok kode program yang akan berjalan saat kita panggil
+        - contoh function adalah seperti writeln() untuk menampilkan tulisan di html
+        - Untuk membuat function, kita bisa menggunakan kata kunci function, lalu diikuti dengan nama function, kurung() dan diakhiri dengan block kurung{}
+        - Function dapat dipanggil menggunakan nama function lalu diikuti dengan kurung()
+        */
+         // contoh penerapan dasar
+
+         //membuat function
+        function helloWorld(){
+            document.writeln(`<h1>halo dunia</h1>`);
+        }
+        // memanggil function
+        helloWorld();
+
+        // dengan perulangan for untuk mencetak halo dunia sebanyak 10x
+        for(let data = 1; data <= 10; data++){
+            helloWorld() 
+        }
+        document.writeln("<br>")
+        document.writeln("<br>")
+        
+        
+        
+        // A. function parameters
+        
+        function dataDiri(firstName,lastName){
+            document.writeln(`Hallo ${firstName} ${lastName}`);
+        }
+        
+        dataDiri("Putu","Agus"); // output : Hallo Putu Agus
+        document.writeln("<br>")
+        dataDiri("Budi", "Utomo"); // output : Hallo Budi Utomo
+        
+        document.writeln("<br>")
+        document.writeln("<br>")
+
+            
+
+
+        // B. function return value
+        /*
+        - Secara default, function itu tidak menghasilkan value apapun, namun jika kita ingin, kita bisa membuat sebuah function mengembalikan value
+        - Agar function bisa mengembalikan value, kita bisa menggunakan kata kunci return di dalam functionnya
+        - Dan di dalam block function, untuk menghasilkan nilai tersebut, kita harus menggunakan kata kunci return, lalu diikuti dengan data yang ingin kita hasilkan
+        - Function hanya bisa mengembalikan satu data, jika kita ingin mengembalikan beberapa data sekaligus, kita bisa menggunakan array sebagai return valuenya
+        */
+
+        // membuat function dengan parameter dan return value
+        function sayHello(firstName,lastName){
+            const say = `Hello ${firstName} ${lastName}`;
+            return say;
+        }
+        // memanggil function dan menangkap return valuenya
+        const result = sayHello("Putu", "Satvika");
+        document.writeln(result)
+
+
+        function getFinalValue(value){
+            if(value >= 90){
+                return 'Selamat nilaimu mengesankan yaitu A';
+
+            }else if(value >= 80){
+                return 'Selamat nilaimu B';
+
+            }else if(value >= 70){
+                return 'Ayo tingkatkan lagi, nilamu C';
+
+            }else if(value >= 60){
+                return 'Belajar lebih giat lagi, nilaimu D';
+
+            }else {
+                return 'sorry to say this, kamu tidak lulus, nilaimu E' ;
+            }
+        }
+
+        const getValue = getFinalValue(92);
+        document.writeln(`<h2>${getValue}</h2>`); // output : Selamat nilaimu mengesankan yaitu A
+
+
+
+        // function return untuk menghentikan perulangan
+
+        // Ini adalah definisi dari fungsi isContains yang digunakan untuk memeriksa apakah suatu nilai terdapat dalam array.
+        // Fungsi ini menerima dua parameter: array (array yang akan diperiksa) dan searchValue (nilai yang ingin dicari).
+
+        function isContains(array, searchValue) {
+            // Melakukan iterasi melalui setiap elemen dalam array menggunakan loop for...of.
+            for (const element of array) {
+                // Memeriksa apakah elemen saat ini sama dengan nilai yang ingin dicari.
+                if (element === searchValue) {
+                    // Jika ada elemen dalam array yang sama dengan searchValue, kembalikan true.
+                    return true;
+                }
+            }
+            // Jika tidak ada elemen dalam array yang sama dengan searchValue, kembalikan false.
+            return false;
+        }
+        
+        // Memanggil fungsi isContains dengan array [1,2,32,4,3,54,5,23,2,34] dan nilai 5 sebagai argumen.
+        const array = [1, 2, 32, 4, 3, 54, 5, 23, 2, 34];
+        const search = 5;
+        const found = isContains(array, search);
+        document.writeln(`<h2>${found}</h2>`) // output : true, karena 5 ada di dalam array
+        
+        
+        // atau bisa dengan cara cepat dibawah
+        // Memanggil fungsi isContains dengan array [1,2,32,4,3,54,5,23,2,34] dan nilai 5 sebagai argumen.
+        console.log(isContains([1, 2, 32, 4, 3, 54, 5, 23, 2, 34], 5));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        // 2. function sebagai value
+
+        function haiPerson(name){
+            document.writeln(`<p>hi ${name}</p>`);
+        }
+
+        haiPerson("odiv"); //output : hai odiv    
+        
+        const hai = haiPerson;
+        hai("budi") //output : hai budi
+
+
+        // function sebagai paramter
+        function giveMeName(callback){
+            callback("andi"); // metode disamping sama saja seperti haiPerson("andi")
+        }
+
+        giveMeName(haiPerson); // ini merupakan contoh function sebagai parameter, dimana haiPerson merupakan function sebelumnya
+        // output : hai andi
+
+
+
+        // 3. Anonymous Functions
+        // membuat anonymous function harus diawali dengan variable atau anonymous function itu harus di ada di dalam variable
+        let say = function (bro){
+            document.writeln(`<p> hi ${bro} </p>`)
+        }
+
+        say("andien") // output : hi andien
+
+
+        function giveMePerson(callback){
+            callback("agus")
+        }
+
+        giveMePerson(say) // output : hi agus
+
+        // atau
+
+        giveMePerson(function(bro){
+            document.writeln(`<p>hello ${bro}</p>`) // output : hello agus
+        })
+
+        giveMePerson(function(bro){
+            document.writeln(`hi ${bro}`) // output : hi agus
+        })
+
+        // anonymous Functions tidak bisa dipakai lagi atau tidak bisa direuse, jadi harus memanggil ulang anonymous function lagi
+
+
+
+        // 4. function di dalam function
+
+        function outer(){
+
+            function inner(){
+                console.log("HALO");
+            }
+
+            inner(); // pemanggilan inner function tidak boleh diluar outer function 
+
+        }
+
+        outer(); // ini harus dipanggil terlebih dahulu sebelum memanggil inner function 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

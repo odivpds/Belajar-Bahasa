@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percabangan</title>
+</head>
+<body>
+    <script>
+        // 1. PERCABANGAN
+        /*Percabangan dalam pemrograman adalah sebuah istilah yang digunakan untuk menyebut alur program yang bercabang. Percabangan juga dikenal dengan istilah “Control Flow”, “Struktur Kondisi”, “Struktur IF”, “Decision”, dan lain-lain.*/
+
+        // A. if, else if, and else
+        const nilaiSiswa = 60;
+
+        if(nilaiSiswa >= 90){
+            document.writeln(`<pre>Nilai anda ${nilaiSiswa} predikat A</pre>`)
+        }
+
+        else if(nilaiSiswa >= 80){
+            document.writeln(`<pre>Nilai anda ${nilaiSiswa} predikat B</pre>`)
+        }
+
+        else if(nilaiSiswa >= 70){
+            document.writeln(`<pre>Nilai anda ${nilaiSiswa} predikat C</pre>`)
+        }
+
+        else if(nilaiSiswa >= 60){
+            document.writeln(`<pre>Nilai anda ${nilaiSiswa} predikat D</pre>`)
+        }
+
+        else if(nilaiSiswa >= 50){
+            document.writeln(`<pre>Nilai anda ${nilaiSiswa} predikat E</pre>`)
+        }   
+        else{
+            document.writeln("<pre>Coba lagi tahun depan bree</pre>")
+        }
+
+
+
+        // B. switch,case, and default
+        let predikat;
+
+        switch (true) {
+            case nilaiSiswa >= 90:
+                predikat = `Nilai anda ${nilaiSiswa} predikat A`;
+                break;
+            case nilaiSiswa >= 80:
+                predikat = `Nilai anda ${nilaiSiswa} predikat B`;
+                break;
+            case nilaiSiswa >= 70:
+                predikat = `Nilai anda ${nilaiSiswa} predikat C`;
+                break;
+            case nilaiSiswa >= 60:
+                predikat = `Nilai anda ${nilaiSiswa} predikat D`;
+                break;
+            case nilaiSiswa >= 50:
+                predikat = `Nilai anda ${nilaiSiswa} predikat E`;
+                break;
+            default:
+                predikat = "Coba lagi tahun depan bree";
+        }
+
+        document.writeln(`<pre>${predikat}</pre>`);
+
+
+
+        // 2. POPUP
+
+        // a. PopUp Alert
+        // alert("hallo world");
+
+        // b. PopUp Prompt
+        // const nama = prompt("siapa nama mu?");
+        // alert(`hallo ${nama}`)
+
+        // c. PopUp Confirm
+        const masuk = confirm("anda yakin mau masuk?");
+        if (masuk){
+            const nama = prompt("siapa namamu?");
+            alert(`selamat datang ${nama}`)
+        }
+        else{
+            alert("see you soon");
+        }
+
+
+    </script>
+</body>
+</html>

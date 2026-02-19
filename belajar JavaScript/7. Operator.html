@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator</title>
+</head>
+<body>
+    <script>
+        // 1. Operator typeOf
+        /*
+        A. Undifined : "undifined"
+        B. Null : "object"
+        C. Boolean : "boolean"
+        D. Number :"number"
+        E. String :"string"
+        F. Symbol : "symbol"
+        G. Bitint : "bigint"
+        H. Function : "function"         
+        */
+
+        const data = 100;
+
+        const typeData = (typeof data)
+        document.writeln(`<h1>${typeData}</h1>`); 
+        // output akan menghasilkan number karena merupakan typeData dari variable data adalah number
+
+ 
+
+        // 2. Operator In
+        // digunakan untuk mengecek sebuah property ada di dalam variable atau tidak
+        
+        const person = {
+            name : "odiv",
+            age : 19,
+            address : "Tampaksiring"
+        };
+        
+        if("name" in person){ // untuk memanggil name harus menggunakan string
+            console.log(`hello ${person.address}`) // output : menampilkan address karena variable name ada di dalam person
+        }else{
+            console.log(` just hello`)
+        }
+        // output adalah hello Tampaksiring, karena property name ada di dalam variable person, jika property tidak ada maka akan mencetak just hello
+
+
+        //*peringatan bahwa In operator hanya akan mengecek apakah sebuah property atau index ada atau tidak, jadi walaupun nilai property atau indexnya undifined atau null, maka tetap akan dianggap ada
+        // contoh : 
+        const student = {
+            firstName : "Putu Agus",
+            middleName : "Prana Dhiva",
+            lastName : undefined
+        }
+
+        if("lastName" in student){
+            console.log(`hello ${student.firstName}`);
+        }else{
+            console.log(`hello`)
+        }
+        // output adalah hello Putu Agus, karena biarpun property lastName adalah undifined operator akan tetap menganggap itu adalah value, jadi akan bernilai true  
+
+
+        // contoh dalam penulisan array
+        const fruits = ["apple", null, "banana","chery"];
+        const result = 1 in fruits;
+        document.writeln(`<h1>${result}</h1>`)
+        // output akan true karena null dan undifined tetap dianggap ada atau memiliki value
+
+
+
+
+        // 3. Ternary operator
+        /* Ternary operator atau operator kondisional adalah satu-satunya operator di JavaScript yang menggunakan tiga operand. Operator ini terdiri dari tiga bagian: kondisi, ekspresi yang dieksekusi jika kondisi benar, dan ekspresi yang dieksekusi jika kondisi salah
+        Operator ini biasanya digunakan untuk mengganti if else*/
+        
+        // contoh kalau kalau menggunakan if else
+        const umur = 22;
+        let penyebutan; // boleh dihilangkan
+        
+        if(umur >= 20){
+            document.writeln("<h2>Dewasa</h2>")
+        }else{
+            document.writeln("<h2>Remaja</h2>")
+        }
+
+        // Menggunakan Ternary
+        const age = 22;
+        const mention = age >= 20? "Dewasa" : "Remaja";
+
+        document.writeln(`<h2>${mention}</h2>`)
+        // tetapi ternary ini digunakan untuk masalah atau kasus yang sederhana saja
+
+
+
+
+
+        // 4. Operator nullish Coalescing
+        /*  Operator penggabungan nullish adalah operator logika dalam JavaScript yang mengembalikan operand sisi kanannya ketika operand sisi kirinya adalah null atau undefined, dan sebaliknya mengembalikan operand sisi kirinya.  Operator ini direpresentasikan oleh dua tanda tanya (??).
+
+        note : Operator penggabungan nullish dapat dilihat sebagai kasus khusus dari operator OR (||) logika 1. Namun, operator OR mengembalikan operand sisi kanannya jika operand kiri adalah nilai falsy, tidak hanya null atau undefined*/
+
+        // kasus or yang tidak menggunakan nullish
+        let parameter;
+
+        let nilai = parameter;
+        if(nilai === undefined || nilai === null){
+            nilai = "Nilai Default";
+
+        }
+        document.writeln(`<h3>${nilai}</h3>`)
+        
+        
+        // kasus dengan nullish Coalescing
+        nilai = parameter ?? "Nilai Default";
+        document.writeln(`<h3>${nilai}</h3>`)
+
+        // kedua output akan sama yaitu Nilai Default, karena variable parameter undifined
+
+
+
+
+        // 5. Operator Logika di Non Boolean
+
+        // A. OR
+        console.log("Hello" || ""); // output = Hello, karena "" merupakan data falsy maka yang dicetak adalah kondisi truthy
+        console.log("" || []); // output = array(0) atau [], karena "" merupakan data falsy maka yang dicetak adalah kondisi truthy
+        console.log("0" || "NOL"); // output = 0, karena didalam kondisi kedua data = truthy maka yang dicetak adalah yang di posisi pertama
+        console.log( 0 || "NOL"); // output =  NOL, karena 0 adalah data falsy maka yang dicetak adalah kondisi truthy
+        console.log(null || "NULL"); // output =  string NULL, karena null merupakan data falsy maka yang dicetak adalah kondisi truthy
+        console.log(undefined || "UNDIFINED");// output = string UNDIFINED, karena undifined merupakan data falsy maka yang dicetak adalah kondisi truthy
+        console.log(0 || false); // output = false, karena didalam kondisi kedua data = falsy maka yang dicetak adalah yang di posisi terakhir
+
+        // contoh penerapan
+        const people = {
+            namaDepan : "Putu Agus",
+            namaAkhir : "Prana Dhiva Satvika" 
+        };
+
+        const nama = people.namaDepan || people.namaAkhir; 
+        console.log(nama); // ouput : Putu Agus, karena kedua value tersebut merupakan data truthy
+
+        // B. AND
+        /*
+        a. operator logika AND (&&), membaca dari kiri ke kanan
+        b. operatar ini akan mengambil nilai pertama yang falsy
+        c. jika tidak ada satupun yang bernilai falsy, maka nilai yang terakhir yang akan diambil
+        */
+
+        console.log("hello" && "") // output = " ", karena data pertama adalah truthy maka yang dicetak adalah data yang falsy
+        console.log(0 && "hello") // output = 0, karena data pertama adalah falsy maka itulah yang dicetak 
+        console.log("hello" && "hi") // output = hi, karena jika kondisi kedua data = truthy maka yang dicetak adalah truthy di posisi terakhir
+        console.log(null && 0) // output = null, karena jika kondisi kedua data = falsy maka yang dicetak adalah falsy di posisi pertama 
+        </script>
+</body>
+</html>

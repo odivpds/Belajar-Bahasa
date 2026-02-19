@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doWhileLoop</title>
+</head>
+<body>
+    <script>
+        let i = 1
+        do{ 
+            document.writeln(`<pre>${i}</pre>`)
+            i++
+        }
+        while(i <=10)
+
+        document.writeln("<br>")
+
+        // triangel star loop 
+        // Inisialisasi variabel a untuk mengatur jumlah baris dalam pola
+        let a = 1;
+        do {
+            // Inisialisasi variabel b untuk mengatur jumlah karakter "*" dalam satu baris
+            let b = 1;
+            do {
+                document.writeln("*"); // Mencetak "*" ke dalam dokumen
+                b++; // Menambah nilai b agar loop berakhir saat mencetak jumlah "*" yang sesuai
+            } while (b <= a); // Loop kedua akan berjalan hingga jumlah "*" mencapai nilai a
+
+            document.writeln("<br>"); // Mencetak baris baru setelah satu baris "*" selesai
+            a++; // Menambah nilai a untuk beralih ke baris berikutnya dalam pola
+        } while (a <= 10); // Loop utama akan berjalan hingga mencapai 10 baris
+
+
+    </script>
+</body>
+</html>

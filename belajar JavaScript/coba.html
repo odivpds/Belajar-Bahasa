@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(name, ...data){ // fungsi titik tiga tersebut adalah untuk mengubah parameter menjadi array  
+            let total = 0;
+            for(const item of data){
+                total += item;
+            }
+            document.writeln(`<p>total ${name} is ${total}</p>`);
+        }
+
+        sum("orange", 20, 43, 15, 45); // output : total orange is 123, karena 123 adalah hasil penjumlahan seluruh value array tersebut
+    </script>
+</body>
+</html>

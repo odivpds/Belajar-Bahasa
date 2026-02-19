@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optional and Default parameter</title>
+</head>
+<body>
+    <script>
+        /* OPTIONAL PARAMETER
+        - Secara default, parameter di function itu optional
+        - Artinya kita tidak wajib mengiisi value nya ketika memanggil function
+        - Jika tidak value yang kita kirim ke parameter ketika memanggil function, maka secara otomatis parameter tersebut bernilai undifined
+        */
+
+        function sayHello(firtsName, middleName, lastName){
+            console.log(firtsName);
+            console.log(middleName);
+            console.log(lastName);
+        }
+
+        sayHello("Eko"); // ini akan mencetak eko sebagai firstName dan sisanya adalah undifined
+        sayHello("Putu", "Agus"); // ini akan mencetak Putu dan Agus masing" sebagai firtsName dan middleName, dan lastName dicetak undifined
+        sayHello("Putu", "Agus", "Prana"); // ini akan mencetak semua isi dari function sayHello yaitu firstName, middleName, dan lastName dengan value masing-masing
+        sayHello("Putu", "Agus", "Prana", "Dhiva"); // ini akan tetap mencetak semua isi dari function sayHello dan tidak terjadi error namun akan mengabaikan value "Dhiva"
+        
+        // tidak terjadi error karena function parameter di javascript adalah optional jadi boleh diisi atau tidak
+
+        console.log(`<br>`)
+
+        /* DEFAULT PARAMETER
+        - Parameter juga bisa kita beri value, artinya jika ketika kita tidak mengirim data ke peremeter atau kita mengirim data undifined, maka secara otomatis peremeter akan ditulis oleh default value
+        */
+ 
+        function dataDiri(nama, age = "UNKNOWN"){
+            console.log(nama);
+            console.log(age);
+        }
+
+        dataDiri(); // ouput adalah undifined dan UNKNOWN
+        dataDiri("Tu Agus"); // output adalah Tu Agus dam UNKNOWN
+        dataDiri("Tu Agus", "Tu Gek"); // output adalah Tu Agus dan Tu Gek
+
+
+
+
+        /* REST PARAMETER
+        - Rest Parameter adalah fitur dimana kita bisa mengirim data sebanyak-banyaknya pada satu parameter, dan secara otomatis akan dikonversi menjadi array
+        * ketentuan untuk membuat rest parameter
+        1. Rest parameter hanya boleh ada satu di function, tidak boleh lebih dari satu
+        2. Rest parameter hanya boleh berada di posisi paling akhir, tidak boleh didepan atau ditengah, kecuali memang cuma ada 1 parameter
+        */
+
+        // contoh penerapan
+        // ini merupakan fungsi untuk menjumlahkan value array
+        function sum(name, ...data){ // fungsi titik tiga tersebut adalah untuk mengubah parameter menjadi array  
+            let total = 0;
+            for(const item of data){
+                total += item;
+            }
+            document.writeln(`<p>total ${name} is ${total}</p>`);
+        }
+
+        sum("orange", 20, 43, 15, 45); // output : total orange is 123, karena 123 adalah hasil penjumlahan seluruh value array tersebut
+
+
+        // ini merupakan contoh pemanggilan jika sebelumnya kita sudah memiliki array, yaitu pemanggilan menggunakan spread syntax
+        let values = [2, 4, 6, 8, 10]; 
+        sum("apple", ...values); // titik 3 tersebut meruapakan spread syntax
+
+        /* PENJELASAN ALUR PERULANGAN REST PARAMETER FUNCTION SUM
+        Berikut adalah alur eksekusi kode JavaScript di dalam fungsi `sum`:
+        1. Fungsi `sum` dipanggil dengan argumen `"orange", 20, 43, 15, 45`. Ini adalah tahap pertama dalam eksekusi kode.
+
+        2. Di dalam fungsi `sum`, parameter `name` diisi dengan nilai `"orange"`, dan parameter rest `...data` mengumpulkan semua argumen berikutnya (20, 43, 15, 45) menjadi sebuah array yang disebut `data`. Saat ini, `name` berisi `"orange"` dan `data` berisi `[20, 43, 15, 45]`.
+
+        3. Variabel lokal `total` dideklarasikan dan diinisialisasi dengan nilai 0. Ini adalah tempat di mana kita akan menjumlahkan semua angka dalam array `data`.
+
+        4. Fungsi `for...of` loop dimulai. Ini akan mengiterasi melalui setiap elemen dalam array `data`. Pada setiap iterasi, nilai dari elemen saat ini disimpan dalam variabel `item`.
+
+        5. Di dalam loop, nilai `item` (20 pada iterasi pertama, kemudian 43, 15, dan 45) ditambahkan ke variabel `total`. Ini dilakukan untuk setiap elemen dalam array, sehingga nilai-nilai ini akhirnya dijumlahkan bersama.
+
+        6. Setelah loop selesai dieksekusi, nilai dari variabel `total` adalah hasil penjumlahan dari semua angka dalam array `data`, yaitu 20 + 43 + 15 + 45 = 123.
+
+        7. Kemudian, kita menggunakan `document.writeln()` untuk menambahkan teks ke dokumen HTML. Dalam kasus ini, kita menggunakan template literal untuk membuat string HTML yang berisi teks "total orange is 123," di mana `orange` adalah nilai dari parameter `name` dan `123` adalah hasil penjumlahan dari array `data`.
+
+        8. Hasil string HTML tersebut ditambahkan ke dokumen HTML, dan output akhir akan muncul di halaman web sebagai "total orange is 123."
+
+        Demikianlah alur eksekusi lengkap dari kode JavaScript di dalam fungsi `sum`.
+
+        
+        ** TAMBAHAN : **
+        Tentu, mari jelaskan lebih lengkap bagian `total += item` dalam fungsi `sum`:
+        1. Saat fungsi `sum` dipanggil, variabel lokal `total` dideklarasikan dan diinisialisasi dengan nilai 0. Ini adalah variabel yang akan digunakan untuk menyimpan hasil penjumlahan dari semua angka dalam array `data`.
+
+        2. Kemudian, loop `for...of` dimulai. Loop ini akan mengiterasi melalui semua elemen dalam array `data` satu per satu. Pada setiap iterasi, nilai dari elemen saat ini disimpan dalam variabel `item`.
+
+        3. Pada setiap iterasi, pernyataan `total += item` dieksekusi. Ini adalah operator penugasan penjumlahan singkat (addition assignment operator) yang digunakan untuk mengakumulasi (menambahkan) nilai `item` ke dalam variabel `total`. Artinya, nilai dari `item` (yaitu angka yang sedang diiterasi) akan ditambahkan ke nilai yang sudah ada di dalam variabel `total`.
+
+        Contoh:
+        - Iterasi pertama: `total` adalah 0, dan `item` adalah 20. Maka, setelah pernyataan `total += item` dieksekusi, nilai `total` akan menjadi 0 + 20 = 20.
+        - Iterasi kedua: `total` sekarang adalah 20, dan `item` adalah 43. Setelah pernyataan `total += item` dieksekusi, nilai `total` akan menjadi 20 + 43 = 63.
+        - Iterasi berikutnya dilakukan dengan cara yang sama untuk elemen-elemen selanjutnya dalam array `data`.
+
+        4. Proses ini berlanjut hingga loop `for...of` selesai. Hasil akhir dari pernyataan `total += item` adalah jumlah dari semua elemen dalam array `data`, yang kemudian akan digunakan untuk menghasilkan output akhir dari fungsi `sum`.
+
+        Dengan kata lain, `total += item` adalah cara untuk mengakumulasi (menambahkan secara berurutan) semua nilai dalam array `data` ke dalam variabel `total`, sehingga pada akhirnya kita mendapatkan jumlah total dari semua angka dalam array tersebut.
+        */
+
+    </script>
+</body>
+</html>

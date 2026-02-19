@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduce of array</title>
+</head>
+<body>
+    <script>
+        // Operasi-operasi Array
+        /* 
+        1. namaArray.push(value) : Untuk menambahkan value atau data ke dalam array
+        2. namaArray.length : Untuk mendapatkan atau memunculkan panjang array
+        3. namaArray[index] : Untuk mendapatkan atau memunculkan data di posisi index tertentu
+        4. namaArray[index] = value : operasi array untuk mengubah data di posisi index tertentu
+        5. delete namaArray[index] : Untuk menghapus data yang berada pada posisi index tanpa menggeser index tersebut 
+
+        *disclaimer pada delete array bahwa data tersebut dapat ditambahkan kembali dengan memanggil index array tersebut
+        */
+
+        // Membuat array
+        const arrayEmpty = [];
+        const arrayNames = ["Putu", "Agus", "Prana", "Dhiva", "Satvika"];
+        console.log(arrayNames);
+
+        
+        //Function untuk menambahkan array
+        const arrays = [];
+        arrays.push("Putu", "Agus");
+        arrays.push("Prana", "Dhiva", "Satvika");
+        console.table(arrays); // output : [Putu, Agus, Prana, Dhiva, Satvika]
+
+
+        //Function mengubah value array
+        arrays[0] = "Bali";
+        arrays[1] = "Maluku";
+        arrays[2] = "Sulawesi";
+        console.table(arrays); // output : [Bali, Maluku, Sulawesi, Dhiva, Satvika]
+
+
+        //Function untuk menghapus atau undisplay array index ke-3
+        delete arrays [3];
+        console.table(arrays); // output : [Bali, Maluku, Sulawesi, Satvika]
+        
+
+        // Jika ditambahkan data array lagi maka data tersebut akan masuk ke array index terakhir
+        arrays.push("Indonesia");
+        console.table(arrays); // output : [Bali, Maluku, Sulawesi, Satvika, Indonesia]
+
+
+        // Mendisplay atau mengisi kembali array yang di delete
+        arrays[3] = "Dhiva";
+        console.table(arrays); // output : [Bali, Maluku, Sulawesi, Dhiva, Satvika, Indonesia]
+ 
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
